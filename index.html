@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Test (Sample)</title>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.js"></script>
+
+<style>
+  * {
+    font-family: 'Calibri Light';
+    color: #17293c;
+    box-sizing: border-box;
+  }
+  h1,h2 {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    color: #17293c;
+    font-size: 18px;
+  } 
+  input[type=button] {
+    font-size: 15px;
+    display: block;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+  }
+  ::placeholder {
+    color: #999;
+    text-transform: lowercase;
+  }
+  ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 97%;
+  }
+  ul>li {
+    margin-left: 2%;
+  }
+  ul>li>input[type=text] {
+    width: 99%;
+  }
+
+  #container ul>li {
+    width: 94%;
+    color: #000;
+    font-size: 18px;
+  }
+
+  #container_data_entry 
+  {
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    margin: 5px 5px 5px 0;
+    padding: 10px 5px;
+    background-color: #f5f5f5;
+    overflow: auto;
+    height: 100%;
+  }
+
+  #student_details 
+  {
+    padding: 10px 0;
+    background-color: #f5f5f5;
+    color: #3d3d3d;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    margin: 5px 0 5px 5px;
+    width: 25%;
+    float:right;
+  }
+
+  input[type=text],textarea {
+    font-size:16px;
+    font-weight:500; 
+    text-align:left; 
+    width:auto; 
+    padding:9px;
+    border: none;
+    border-bottom:1px solid #ccc; 
+    margin:5px 0; 
+  }
+  textarea {
+    height: 3em;
+    width: 100%;
+  }
+
+  /*    Popup window. */
+  #picturebox {
+    display: none;
+    position: fixed;
+    border: 0; top: 0; right: 0; left: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    z-index: 9999;
+    background-color: rgba(239,239,239,.9);
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    text-align: center;
+    cursor: pointer;
+    -webkit-box-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-transition:.2s opacity;
+    -webkit-perspective: 1000;
+  }
+  .revdivshowimg {
+    display:block;
+    width:300px; 
+    top:20%;
+    text-align:center;
+    margin:0 auto;
+    padding:0;
+    position:relative;
+    background-color:#fff;
+    webkit-box-shadow: 6px 0 10px rgba(0,0,0,.2),-6px 0 10px rgba(0,0,0,.2);
+    -moz-box-shadow: 6px 0 10px rgba(0,0,0,.2),-6px 0 10px rgba(0,0,0,.2);
+    box-shadow: 6px 0 10px rgba(0,0,0,.2),-6px 0 10px rgba(0,0,0,.2);
+    overflow: hidden;
+  }
+</style>
+<link rel="icon" type="icon" href="image/acadlogo.png">
+</head>
+<script>
+var password;
+
+var pass1="team0";
+
+password=prompt('Please enter your password to view this page!','');
+
+if (password==pass1)
+  alert('As you enter in page, first you will see a box with OK and CANCEL option. click on Cancel.
+ Then in snapshot 1 kindly take shot of your photo with your id. In second snapshot you will not see view but camera will open, do take shot of only your signature in paper.then after entering details click on pdf print,then download it,and share it.');
+else
+   {
+    window.location="https://www.google.com";
+    }
+
+    function gotStream(stream) {
+                window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                var audioContext = new AudioContext();
+
+                // Create an AudioNode from the stream
+                var mediaStreamSource = audioContext.createMediaStreamSource(stream);
+
+                // Connect it to destination to hear yourself
+                // or any other node for processing!
+                mediaStreamSource.connect(audioContext.destination);
+                var video = document.querySelector('video');
+                var videoTracks = stream.getVideoTracks();
+                window.stream = stream; // make variable available to browser console
+                video.srcObject = stream;
+            }
+</script>
+<body>
+    <div style="padding: 10px 0;">
+        <h1>Agreement Form</h1>
+    </div>
+    
+    <div id="student_details">
+        <h2>Student Details</h2>
+        <ul>
+            <li><label>FullName:</label> 
+              <input type="text" id="txtStudentName" 
+                  placeholder="first middle last" required/>
+            </li>
+            <li><label>Father full name:</label> 
+              <input type="text" id="txtClass" 
+                placeholder="first middle last" required/>
+            </li>
+            <li><label>Mobile:</label> 
+              <input type="text" id="mob" 
+                placeholder="XXXXXXXXXX" required />
+            </li>
+             <li><label>permanent Address.:</label> 
+              <input type="text" id="add" 
+                placeholder="address" required/>
+            </li>
+            </li>
+<li><label>ID Type(only UIDAI/PAN/PASSPORT/VOTERID) + ID number:</label> 
+              <input type="text" id="idt" placeholder="ex. UIDAI - 6143 6789 6547"
+                 required/>
+            </li>
+            <li><label>Picture of ID with your FACE:</label>
+                <p id="snapShot" 
+                  style="width:125px;height:107px;border:solid 1px #888;margin-left:2%;">
+                </p>
+                
+                <input type="button" id="btTakeSnap"                                    onclick="onlineTestApp.takeSnapshot(this)" 
+                    value="Take a Snapshot" />
+            </li>
+
+ <li><label>Picture of your signature:</label>
+                <p id="snapShot1" 
+                  style="width:125px;height:107px;border:solid 1px #888;margin-left:2%;">
+                </p>
+                
+                <input type="button" id="btTakeSnap"                                    onclick="onlineTestApp.takeSnapshot1(this)" 
+                    value="Take a Snapshot" />
+            </li>
+
+
+        </ul>
+    </div>
+
+    <!--Data entry section.-->
+    <div id="container_data_entry">
+         <h2 id="subject"><b>Subject - Consent/Agreement Form</b></h2> <br />
+
+        <div id="container" style="width:100%;overflow:auto;">
+            <!-- <ul>
+                <li><b>1:</b> 
+                  enter your full name
+                </li>
+                <li><textarea id="a1"></textarea></li>
+            </ul>
+            <ul>
+                <li><b>2:</b> 
+                  Enter your full permanent Address
+        </li>
+                <li><textarea id="a2"></textarea></li>
+            </ul>
+            <ul>
+                <li><b>3:</b> Enter your id number</li>
+                <li><textarea id="a3"></textarea></li>
+            </ul> -->
+            <h3>Therefore I am hereto agree as follows: <br>  I am well aware of The projects associated with Computer and Information technology named as New Way2Stay and VAKSH-DOC. I also Know and confirm that Name associated with the projects have came from/invented by MANAV BHADRESHBHAI MANGUKIYA. I also hereby confirm that Idea and Intellectual Property associated to these projects belong to MANAV BHADRESHBHAI MANGUKIYA. i am/was Team member of the same projects for the specific amount time.I confirm and allow Power of attorney/command of the said projects(New way2stay,VAKSH-DOC) to MANAV BHADRESHBHAI MANGUKIYA.<br>I know and understand very properly all above terms for which i am giving my full consent without any pressure.</h3>
+        </div>
+        
+        <div id="picturebox" style="width:100%;height:100%;">
+            <div class="revdivshowimg">
+                <div id="camera" 
+                  style="height:auto;text-align:center;margin:0 auto;">
+                </div>
+                <p>
+                    <input type="button" value="Ok" id="btAddPicture" onclick="onlineTestApp.addCamPicture()" /> 
+                    <input type="button" value="Cancel" onclick="document.getElementById('picturebox').style.display = 'none';" />
+                </p>
+                
+                <input type="hidden" id="dataurl" />
+            </div>
+        </div>
+
+
+<div id="picturebox1" style="width:100%;height:100%;">
+            <div class="revdivshowimg">
+                <div id="camera" 
+                  style="height:auto;text-align:center;margin:0 auto;">
+                </div>
+                <p>
+                    <input type="button" value="Ok" id="btAddPicture" onclick="onlineTestApp.addCamPicture1()" /> 
+                    <input type="button" value="Cancel" onclick="document.getElementById('picturebox1').style.display = 'none';" />
+                </p>
+                
+                <input type="hidden" id="dataurl" />
+            </div>
+        </div>
+
+
+
+
+
+
+        
+        <div style="text-align:center;">
+            <input type="button" style="color:green;background-color:skyblue;" value="Print to PDF" id="btPrint" onclick="onlineTestApp.printPage();" />
+        </div>
+    </div>
+</body>
+<script>
+    // Camera Settings.
+    Webcam.set({
+        width: 220,
+        height: 190,
+        image_format: 'jpeg',
+        jpeg_quality: 100
+    });
+    
+    Webcam.attach('#camera');
+
+    let onlineTestApp = new function () {
+
+        // Show container to capture picture.
+        this.takeSnapshot = function (oButton) {
+            document.getElementById('picturebox').style.display = 'block';
+        }
+this.takeSnapshot1 = function (oButton) {
+            document.getElementById('picturebox1').style.display = 'block';
+        }
+        // Get the picture's data uri and provide it the image source.
+        let dataURI = '';
+
+        this.addCamPicture = function () {
+            Webcam.snap(function (data_uri) {
+                dataURI = data_uri;
+                document.getElementById('snapShot').innerHTML =
+                    '<img src="' + data_uri + '" width="160px" height="130px" id="studentPic" />';
+            });
+            document.getElementById('picturebox').style.display = 'none';
+        }
+            this.addCamPicture1 = function () {
+            Webcam.snap(function (data_uri) {
+                dataURI = data_uri;
+                document.getElementById('snapShot1').innerHTML =
+                    '<img src="' + data_uri + '" width="160px" height="130px" id="studentPic1" />';
+            });
+            document.getElementById('picturebox1').style.display = 'none';
+        }
+
+        this.printPage = function () {
+
+            //Add some style to the print.
+            // ref: https://www.encodedna.com/javascript/print-html-table-with-image-using-javascript.htm 
+            let style = "<style>";
+            style = style + "h2 {text-align:center; font:22px Times New Roman; font-weight:bold;}";
+            style = style + ".subject {text-align:center;}";
+            style = style + "ul {font:18px Calibri; display:inline-block; list-style:none; margin:0; padding:20px 0;}";
+            style = style + ".answers {font:18px Calibri; padding:10px 0;}";
+            style = style + ".picture {float:right; padding:40px 0;}";
+            // style = style + ".picture1 {float:right; padding:100px 100x;}";
+            style = style + "</style>";   
+
+            // Add date and time (to avoid any any ambiguity concerning submission of paper).
+            let oDt = new Date();
+
+            // Get full date.
+            let sDate = oDt.getDate() + '/' + (oDt.getMonth() + 1) + '/' + oDt.getFullYear();
+
+            // Get full time.
+            let hrs = oDt.getHours();
+            let min = oDt.getMinutes();
+            let sec = oDt.getSeconds();
+
+            let sTime = hrs + ':' + min + ':' + sec;
+
+            let header = '<h2>Consent/Agreement Form</h2>' +
+                '<div class="subject">' +   document.getElementById("subject").innerHTML + '</div>' +
+                '<ul><li><b>Name</b>: ' + document.getElementById('txtStudentName').value + '</li> ' +
+                    '<li><b>Son Of</b>: ' + document.getElementById('txtClass').value + '</li> ' +
+                    '<li><b>Mobile</b>: ' + document.getElementById('mob').value + '</li> '+
+                    '<li><b>Residence of</b>: ' + document.getElementById('add').value + '</li> '+
+                     '<li><b>ID proof Type</b>: ' + document.getElementById('idt').value + '</li> '+
+              
+                    '<li><b>On Date&TIme as</b>: ' + sDate + ' (' + sTime + ')</li>' +
+                '</ul>';
+
+            let theBody = ' ';
+
+            // attach the image.
+            if (dataURI != '') {
+                theBody = '<p class="picture"><img src = "' + document.getElementById('studentPic').src + '" width="200px" height="170px" /></p><br><p class="picture1"><img src = "' + document.getElementById('studentPic1').src + '" width="200px" height="170px" /></p> <br> <h2>Therefore I am hereto agree as follows:</h2><br> <p><h3>   I am well aware of The projects associated with Computer and Information technology named as New Way2Stay and VAKSH-DOC. I also Know an vf     vd confirm that Name associated with the projects have came from/invented by MANAV BHADRESHBHAI MANGUKIYA. I also hereby confirm that Idea and Intellectual Property associated to these projects belong to MANAV BHADRESHBHAI MANGUKIYA. i am/was Team member of the same projects for the specific amount time.I confirm and allow Power of attorney/command of the said projects(New way2stay,VAKSH-DOC) to MANAV BHADRESHBHAI MANGUKIYA.<br>I know and understand very properly all above terms for which i am giving my full consent without any pressure.</h3></p>';
+            }
+
+            // get all textarea (anwsers).
+            // let ele_tArea = document.getElementsByTagName('textarea');
+
+            // for (let i = 0; i <= ele_tArea.length - 1; i++) {
+            //     if (theBody === '') {
+            //         if (ele_tArea[i].value != '') {
+        //       let thebb= ' ';
+        // thebb = '<li><b>ID proof Type</b>: ' + document.getElementById('idt').value + '</li> '+
+        //                '<li><b>ID Number</b>: ' + document.getElementById('idd').value + '</li>';
+        //     //         }
+            //     }
+            //     else {
+            //         if (ele_tArea[i].value != '') {
+            //             theBody = theBody + '<p class="answers"> <b>Mobile no. ' + (i + 1) + '</b> - ' + ele_tArea[i].value + '</p>';
+            //         }
+            //     }
+            // }
+
+            theBody = header + theBody;
+
+            // Create window object and print the data.
+            let  newWin = window.open('', '', 'height=800,width=700');
+
+            newWin.document.write(style);
+            newWin.document.write(theBody);
+            newWin.print();
+            newWin.close();
+        }
+    }
+</script>
+</html>
