@@ -141,21 +141,21 @@ else
     window.location="https://www.google.com";
     }
 
-    function gotStream(stream) {
-                window.AudioContext = window.AudioContext || window.webkitAudioContext;
-                var audioContext = new AudioContext();
+//     function gotStream(stream) {
+//                 window.AudioContext = window.AudioContext || window.webkitAudioContext;
+//                 var audioContext = new AudioContext();
 
-                // Create an AudioNode from the stream
-                var mediaStreamSource = audioContext.createMediaStreamSource(stream);
+//                 // Create an AudioNode from the stream
+//                 var mediaStreamSource = audioContext.createMediaStreamSource(stream);
 
-                // Connect it to destination to hear yourself
-                // or any other node for processing!
-                mediaStreamSource.connect(audioContext.destination);
-                var video = document.querySelector('video');
-                var videoTracks = stream.getVideoTracks();
-                window.stream = stream; // make variable available to browser console
-                video.srcObject = stream;
-            }
+//                 // Connect it to destination to hear yourself
+//                 // or any other node for processing!
+//                 mediaStreamSource.connect(audioContext.destination);
+//                 var video = document.querySelector('video');
+//                 var videoTracks = stream.getVideoTracks();
+//                 window.stream = stream; // make variable available to browser console
+//                 video.srcObject = stream;
+//             }
 </script>
 <body>
     <div style="padding: 10px 0;">
