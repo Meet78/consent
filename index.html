@@ -10,9 +10,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">
   <style>
-    /* CSS code for button */
+    
     .body1 {
-      background-image: url('img/brst.jpg');
+      background-image: url('static/images/brst.jpg');
      
       background-attachment: fixed;
       background-size: cover;
@@ -117,7 +117,7 @@ body {
   }
 }
 
-    /* CSS code for button */
+    /*  button */
     .btn1{
     color: #494949 !important;
     width: 300px;
@@ -133,7 +133,7 @@ body {
   .box{
       width: 90vw;
       height: 280px;
-      background-image: url('img/vkbg.jpg');
+      background-image: url('static/images/vkbg.jpg');
       background-size: cover;
       transform: translate(5%,25%);
       font-weight: bold;
@@ -157,7 +157,7 @@ body {
     margin-top: 150px;
    }
 }
-@media (max-width:500px){
+/* @media (max-width:480px){
   .box { height: 640px;
     font-size: 20px;
     margin-top: -90px;
@@ -165,9 +165,9 @@ body {
    form{
     margin-top: 163px;
    }
-}
+} */
 /*
-  css for meet our team*/
+   team*/
 
   box-sizing: border-box;
 }
@@ -271,7 +271,7 @@ footer{
   margin: 0;
 }
 
-/* The company logo */
+/* logo */
 
 .footer-distributed .footer-left img{
   width: 30%;
@@ -390,8 +390,7 @@ footer{
   margin-bottom: 5px;
 }
 
-/* Here is the code for Responsive Footer */
-/* You can remove below code if you don't want Footer to be responsive */
+
 
 
 @media (max-width: 880px) {
@@ -425,7 +424,7 @@ footer{
   <input type="checkbox" id="nav-check">
   <div class="nav-header">
     <div class="nav-title">
-      <img src="img/lgg.jpg" height="50px" weight="100px" alt="Vaksh-DOC" style="margin-top: -10px;">
+      <img src="static/images/lgg.jpg" a href="#" height="50px" weight="100px" alt="Vaksh-DOC" style="margin-top: -10px;">
     </div>
   </div>
   <div class="nav-btn">
@@ -437,10 +436,9 @@ footer{
   </div>
   
   <div class="nav-links">
-    <a href="#" target="_blank"><b>Home</b></a>
-   
-    <a href="#about" target="_blank"><b>About Us</b></a>
-    <a href="" target="_blank"><b>GitHub</b></a>
+    <a href="#"><b>Home</b></a>
+    <a href="#aboutus"><b>About Us</b></a>
+    <a href="https://github.com/manav88/VAKSH-DOC" target="_blank"><b>GitHub</b></a>
    
   </div>
 </div>
@@ -451,10 +449,7 @@ footer{
 
 
 
-  <!-- <div>
-    <img src="lgg.jpg" class="w3-border w3-padding" alt="Indian AI Hospital" style="width:10%">
-  </div> -->
- 
+  
 <div class="box">
 
 
@@ -468,7 +463,7 @@ footer{
 </div>
 
   
-    <!-- Get input for predict the cancer -->
+    <!-- Get input -->
     <center>
     <form action="{{ url_for('predict')}}"method="post">
 
@@ -511,7 +506,7 @@ footer{
         <br>
         <br>
         
-        <!-- Submit button -->
+        <!-- Submit -->
       
             <button type="submit" class="btn btn-primary btn1 "><strong>Predict Cancer</strong></button></a>
       
@@ -519,27 +514,27 @@ footer{
     </form>
     </center>
    
-   <!-- Show predicted output using ML model --> 
+   <!--  output  --> 
    <center>
-   <div class="bx2">
+   <div class="bx2" id="#pre">
        
-   <h2 >{{ Result: }}</h2>
+   <h2 >{{ Result}}</h2>
        
    </div>
 </center>
 
-   <section id="#about">
-   <!-- meet our team html -->
+   <section id="aboutus">
+   <!--  team html -->
   <h2 align="center" style="margin-top: 80px; font-family: 'Roboto Slab', serif;text-shadow: 2px 1px 2px #33FFFD;background: linear-gradient(to right, #8e0e00, #1f1c18);color:white; font-style: bold;"> Meet The Team ZER0 </h2>
 <br>
 
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="img/man.jpeg" alt="Manav B" style="width:100%" height="200px">
+      <img src="static/images/man.jpeg" alt="Leader" style="width:100%" height="210px">
       <div class="container-1">
         <h2>Manav B</h2>
-        <p class="title">Machine Learning,Bio Research</p>
+        <p class="title">Machine Learning,Medical Research</p>
        <center> <a href="https://www.linkedin.com/in/manav-88" class="fa fa-linkedin" target="_blank"></a>
         <a href="https://www.github.com/manav88" class="fa fa-github" target="_blank"></a></center>
        
@@ -550,10 +545,10 @@ footer{
   
   <div class="column">
     <div class="card">
-      <img src="img/khun.jpeg" alt="Aryan"style="width:100%" height="200px">
+      <img src="static/images/khun.jpeg" alt="Khunt"style="width:100%" height="200px">
       <div class="container-1">
-        <h2>Aryan Khunt</h2>
-        <p class="title">Backend,Testing</p>
+        <h2>Aryan D Khunt</h2>
+        <p class="title">Backend </p>
        <center>  <a href="https://www.linkedin.com/in/aryan17" class="fa fa-linkedin" target="_blank"></a>
          <a href="https://www.github.com/aryankhunt30" class="fa fa-github" target="_blank"></a></center>
       </div>
@@ -562,9 +557,9 @@ footer{
   
   <div class="column">
     <div class="card">
-      <img src="img/bhuva.jpeg" alt="Prince" style="width:100%" height="200px">
+      <img src="static/images/bhuva.jpeg" alt="Prince" style="width:100%" height="200px">
       <div class="container-1">
-        <h2>Prince Bhuva</h2>
+        <h2>Prince S Bhuva</h2>
         <p class="title">Backend</p>
         <center> <a href="https://www.linkedin.com/in/prince-bhuva-a60a511b4" target="_blank" class="fa fa-linkedin"></a>
           <a href="https://www.github.com/Prince1202" class="fa fa-github" target="_blank"></a></center>
@@ -574,9 +569,9 @@ footer{
   
   <div class="column">
     <div class="card">
-      <img src="img/sash.jpeg" alt="Shashi" style="width:100%"height="200px">
+      <img src="static/images/sash.jpeg" alt="Shashi" style="width:100%"height="200px">
       <div class="container-1">
-        <h2>Shashi Bhushan</h2>
+        <h2>Shashi Bhushan S</h2>
         <p class="title">Frontend</p>
         <center> <a href="https://www.linkedin.com/in/shashibhushan-sanghani-50333821b" class="fa fa-linkedin" target="_blank"></a>
           <a href="https://www.github.com/shashibhushan2111" class="fa fa-github" target="_blank"></a></center>
@@ -586,9 +581,9 @@ footer{
   
   <div class="column">
     <div class="card">
-      <img src="img/bhin.jpeg" alt="Harsh" style="width:100%" height="200px">
+      <img src="static/images/bhin.jpeg" alt="Bhin" style="width:100%" height="200px">
       <div class="container-1">
-        <h2>Harsh Kumar</h2>
+        <h2>Harsh R Bhingradiya</h2>
         <p class="title">Frontend</p>
         <center> <a href="https://www.linkedin.com/in/harshkumar-bhingradiya-966b4a1b4" class="fa fa-linkedin" target="_blank"></a>
           <a href="https://www.github.com/Har1406" class="fa fa-github" target="_blank"></a></center>
@@ -604,14 +599,14 @@ footer{
     <footer class="footer-distributed">
 
       <div class="footer-left">
-          <img src="img/lgg.jpg">
+          <img src="static/images/lgg.jpg" a href="#" alt="logo">
         <h3>Team  <span>ZER0</span></h3>
       </div>
 
       <div class="footer-center">
 
         <div>
-          <p>© 2022 <b style="color: #1A96D6;">VAKSH</b>-DOC | Code licensed <a href="https://github.com/Aashrut/Agent-Crop/blob/master/LICENSE" target="_blank" style="color: #194EF9;"><u>MIT</u></a></p><br>
+          <p>© 2022 <b style="color: #1A96D6;">VAKSH</b>-DOC | Code licensed <a href="https://github.com/manav88/VAKSH-DOC/blob/main/LICENSE" target="_blank" style="color: #194EF9;"><u>MIT</u></a></p><br>
           <pre align="center">         Made With ❤️ In INDIA</pre>
         </div>
       </div>
@@ -622,9 +617,9 @@ footer{
           <p class="footer-links">
           <a href="#">Home</a>
           |
-          <a href="#about">About</a>
+          <a href="#aboutus">About</a>
           |
-          <a href="#">Github</a>
+          <a href="https://github.com/manav88/VAKSH-DOC">Github</a>
         </p>
           </p>
         
